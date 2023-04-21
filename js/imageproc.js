@@ -27,7 +27,14 @@
         image.onload = function () {
             input.drawImage(image, 0, 0);
         }
-        image.src = "images/" + imageSelector.val();
+        if(imageSelector.find("option:selected").attr('base64URL')){
+            image.src=imageSelector.find("option:selected").attr('base64URL')
+        }
+        // console.log(imageSelector.find("option:selected").attr('base64URL'))
+        else{
+            image.src = "images/" + imageSelector.val();
+        }
+   
     }
 
     /*
