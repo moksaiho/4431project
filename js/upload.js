@@ -27,7 +27,7 @@ $(document).ready(function() {
                 document.getElementById("input-image").appendChild(newImg);
                 alert('add image successful!')
                 }else {
-                    alert('文件像素宽：' + width +'，文件像素高：'+ height ,"文件尺寸应为:480*360(像素)!");
+                    alert('文件像素宽：' + width +'，文件像素高：'+ height +",文件尺寸应为:480*360(像素)!");
                     document.getElementById("file").value = "";
                     return false;
                 }

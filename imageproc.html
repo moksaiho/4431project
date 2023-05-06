@@ -20,6 +20,19 @@
     </style>
 </head>
 <body>
+    <script>
+        function show_according(value){
+            // console.log(value)
+            if(value==='circle'){
+                document.getElementById('sector-size').style.display='block'
+                // console.log('execute show')
+            }
+            else{
+                document.getElementById('sector-size').style.display='none'
+                // console.log('execute hide')
+            }
+        }
+    </script>
     <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
         <div class="navbar-header">
             <span class="navbar-brand">Image Processor</span>
@@ -313,6 +326,15 @@
                                         <option value="processed">Processed Image</option>
                                     </select>
                                 </div>
+                                <div class="col-3">
+                                    <label for="kuwahara-type">kuwahara-type:</label>
+                                    <select class="custom-select" id="kuwahara-type" onchange="show_according(this.value)">
+                                        <option value="square">square</option>
+                                        <option value="hexagonal">hexogonal</option>
+                                        <option value="circle">circle</option>
+                                        
+                                    </select>
+                                </div>
                                 <div class="col-4">
                                     <label for="kuwahara-filter-size">Filter size:</label>
                                     <div class="input-group">
@@ -326,8 +348,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row" >
+                            <div class="col-3" style="display:none" id="sector-size">
+                                <label for="kuwahara-sector-size">Sector size:</label>
+                                <select class="form-control" id="kuwahara-sector-size">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8">8</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                </div>
+
 
                     <!-- Ordered dithering -->
                     <div class="tab-pane" id="dither">
@@ -438,5 +471,6 @@
     <script src="js/outline.js"></script>
     <script src="js/main.js"></script>
     <script src="js/layers.js"></script>
+   
 </body>
 </html>

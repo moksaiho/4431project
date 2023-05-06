@@ -75,7 +75,8 @@
                 if ($("#kuwahara-input").val() == "processed")
                     inputImage = processedImage;
                 var size = parseInt($("#kuwahara-filter-size").val());
-                imageproc.kuwahara(inputImage, outputImage, size);
+                var type = $('#kuwahara-type').val()
+                imageproc.kuwahara(inputImage, outputImage, size,type);
                 break;
         }
     }
