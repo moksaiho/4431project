@@ -32,6 +32,23 @@
                 // console.log('execute hide')
             }
         }
+    function download(selector) {
+        console.log(selector)
+  // 通过 API 获取目标 canvas 元素
+  const canvas = document.querySelector(selector);
+const input_node=document.querySelector('#input-image')
+  // 创建一个 a 标签，并设置 href 和 download 属性
+  const el = document.createElement('a');
+  // 设置 href 为图片经过 base64 编码后的字符串，默认为 png 格式
+  el.href = canvas.toDataURL();
+console.log('downloading',input_node.value)
+  el.download = input_node.value;
+
+  // 创建一个点击事件并对 a 标签进行触发
+  const event = new MouseEvent('click');
+  el.dispatchEvent(event);
+}
+
     </script>
     <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
         <div class="navbar-header">
@@ -69,7 +86,13 @@
                 <h5>Output Image</h5>
                 <canvas id="output" width="480" height="360"></canvas>
                 <div class="form-inline">
-                    <button id="output-update" class="btn btn-info"><i class="fas fa-sync"></i> Update Output</button>
+                    <div class="col-6">
+                        <button id="output-update" class="btn btn-info"><i class="fas fa-sync"></i> Update Output</button>
+                    </div>
+                    <div class="col-6">
+                    <button id="output-download" class="btn btn-info" onclick="download('#output')"><i class="fas fa-file"></i> download result</button>
+                    </div>
+
                 </div>
             </div>
         </div>
