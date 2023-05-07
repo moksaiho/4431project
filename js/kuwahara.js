@@ -28,7 +28,8 @@
             
                 var sSize = parseInt($("#kuwahara-sector-size").val());
                 // console.log('sSize',sSize)
-                var boundary = Math.trunc(size / 2);
+                var boundary = Math.trunc($("#kuwahara-Gaussian-Factor").val()/2);
+                var Gaussiansize=$("#kuwahara-Gaussian-Factor").val()
                 var sectorArray = [];
                 var result = [];
                 for (var i = 0; i < sSize; i++) {
@@ -40,7 +41,7 @@
                     for (var j = y - boundary; j <= y + boundary; j++) {
                         var distance = Math.hypot(i - x, j - y);
 
-                        if (distance > size / 2) {
+                        if (distance > Gaussiansize/2) {
                             continue;
                         }
 
@@ -217,8 +218,7 @@
 
 
         else if(type=="hexagonal"){
-            var sideLength= size;
-
+            var sideLength= parseInt($("#kuwahara-Gaussian-Factor").val());
             var sub_ker = sideLength;
             var half_ker = parseInt((sub_ker - 1) / 2);
             var hexagon_r = half_ker;

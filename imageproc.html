@@ -25,10 +25,25 @@
             // console.log(value)
             if(value==='circle'){
                 document.getElementById('sector-size').style.display='block'
+                document.getElementById('Gaussian-Factor').style.display='block'
+                document.getElementById('filter-size').style.display='none'
+                
                 // console.log('execute show')
             }
-            else{
+            else if(value==='square'){
                 document.getElementById('sector-size').style.display='none'
+                document.getElementById('Gaussian-Factor').style.display='none'
+                document.getElementById('filter-size').style.display='block'
+                
+             
+                // console.log('execute hide')
+            }
+            else if(value==='hexagonal'){
+                document.getElementById('sector-size').style.display='none'
+                document.getElementById('Gaussian-Factor').style.display='block'
+                document.getElementById('filter-size').style.display='none'
+                
+             
                 // console.log('execute hide')
             }
         }
@@ -358,7 +373,7 @@ console.log('downloading',input_node.value)
                                         
                                     </select>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-4" style="display:block" id="filter-size">
                                     <label for="kuwahara-filter-size">Filter size:</label>
                                     <div class="input-group">
                                         <div class="row flex-fill align-items-center mx-0 px-2 border rounded-left">
@@ -370,6 +385,17 @@ console.log('downloading',input_node.value)
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-3" style="display:none" id="Gaussian-Factor">
+                                    <label for="kuwahara-Gaussian-Factor">Gaussian Factor:</label>
+                                    <select class="form-control" id="kuwahara-Gaussian-Factor">
+                                        <option value="3">3</option>
+                                        <option value="5">5</option>
+                                        <option value="9">9</option>
+                                        <option value="13">13</option>
+                                        <option value="15">15</option>
+                                    </select>
+                                </div>
+                                
                             </div>
                             <div class="row" >
                             <div class="col-3" style="display:none" id="sector-size">
@@ -395,7 +421,7 @@ console.log('downloading',input_node.value)
                                         <option value="original">Original Image</option>
                                         <option value="processed">Processed Image</option>
                                     </select>
-                                </div>
+                                </dither-transparentCdiv>
                                 <div class="col-3">
                                     <label for="dither-matrix-type">Matrix type:</label>
                                     <select class="custom-select" id="dither-matrix-type">
